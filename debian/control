@@ -1,15 +1,50 @@
-Source: template-repository
-Section: unknown
+Source: rust-proc-macro2
+Section: rust
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: debhelper (>= 12),
+ dh-cargo (>= 25),
+ cargo:native <!nocheck>,
+ rustc:native <!nocheck>,
+ libstd-rust-dev <!nocheck>,
+ librust-unicode-ident-1+default-dev <!nocheck>
+Maintainer: Debian Rust Maintainers <pkg-rust-maintainers@alioth-lists.debian.net>
+Uploaders:
+ Ximin Luo <infinity0@debian.org>,
+ Wolfgang Silbermayr <wolfgang@silbermayr.at>
+Standards-Version: 4.6.1
+Vcs-Git: https://salsa.debian.org/rust-team/debcargo-conf.git [src/proc-macro2]
+Vcs-Browser: https://salsa.debian.org/rust-team/debcargo-conf/tree/master/src/proc-macro2
+X-Cargo-Crate: proc-macro2
+Rules-Requires-Root: no
 
-Package: template-repository
+# FIXME (packages."(name)".section) debcargo auto-generated summary for librust-proc-macro2-dev is very long, consider overriding
+
+Package: librust-proc-macro2-dev
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-unicode-ident-1+default-dev
+Provides:
+ librust-proc-macro2+default-dev (= ${binary:Version}),
+ librust-proc-macro2+nightly-dev (= ${binary:Version}),
+ librust-proc-macro2+proc-macro-dev (= ${binary:Version}),
+ librust-proc-macro2+span-locations-dev (= ${binary:Version}),
+ librust-proc-macro2-1-dev (= ${binary:Version}),
+ librust-proc-macro2-1+default-dev (= ${binary:Version}),
+ librust-proc-macro2-1+nightly-dev (= ${binary:Version}),
+ librust-proc-macro2-1+proc-macro-dev (= ${binary:Version}),
+ librust-proc-macro2-1+span-locations-dev (= ${binary:Version}),
+ librust-proc-macro2-1.0-dev (= ${binary:Version}),
+ librust-proc-macro2-1.0+default-dev (= ${binary:Version}),
+ librust-proc-macro2-1.0+nightly-dev (= ${binary:Version}),
+ librust-proc-macro2-1.0+proc-macro-dev (= ${binary:Version}),
+ librust-proc-macro2-1.0+span-locations-dev (= ${binary:Version}),
+ librust-proc-macro2-1.0.60-dev (= ${binary:Version}),
+ librust-proc-macro2-1.0.60+default-dev (= ${binary:Version}),
+ librust-proc-macro2-1.0.60+nightly-dev (= ${binary:Version}),
+ librust-proc-macro2-1.0.60+proc-macro-dev (= ${binary:Version}),
+ librust-proc-macro2-1.0.60+span-locations-dev (= ${binary:Version})
+Description: Substitute implementation of the compiler's `proc_macro` API to decouple token-based libraries from the procedural macro use case - Rust source code
+ This package contains the source for the Rust proc-macro2 crate, packaged by
+ debcargo for use with cargo and dh-cargo.
